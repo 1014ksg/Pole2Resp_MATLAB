@@ -3,7 +3,7 @@ fig = figure('WindowButtonMotionFcn',@my_callback);
 % Axes オブジェクトを作成。
 ax_pole = subplot(1,2,1);
 Plot_pole_location_1 = plot(ax_pole,0,0,'*');hold on;
-Plot_pole_location_2 = plot(ax_pole,1,-1,'*');hold on;
+%Plot_pole_location_2 = plot(ax_pole,1,-1,'*');hold on;
 ax_pole.XLim = [-4 1];
 ax_pole.YLim = [-8 8];
 ax_pole.XAxisLocation = 'origin';
@@ -20,7 +20,7 @@ K = 1; T = 1;
 y = K/T * exp(-1/T*t);
 Plot_response = plot(ax_resp,t,y);hold on;
 ax_resp.XLim = [0 5];
-ax_resp.YLim = [-0.1 1];
+ax_resp.YLim = [-0.1 1.1];
 grid on
 
   function my_callback(src,data)
