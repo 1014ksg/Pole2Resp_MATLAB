@@ -1,4 +1,4 @@
-function make_figure()
+function FirstOrder_impulse()
 % Impulse Response の初期化
 t = 0:0.1:8;
 y = ImpulseResp_FirstOrder(t);
@@ -8,12 +8,8 @@ fig = figure('WindowButtonMotionFcn',@update_figure);
 
 % Axes オブジェクトの作成
 ax_pole = subplot(1,2,1);
-Plot_pole_location_1 = plot(ax_pole,0,0,'*');hold on;
-set_figure_ax_pole(ax_pole)
-
 ax_resp = subplot(1,2,2);
-Plot_response = plot(ax_resp,t,y);hold on;
-set_figure_ax_resp(ax_resp)
+[ax_pole, Plot_pole_location, ax_resp, Plot_response] = MakeAxes(ax_pole, ax_resp, t, y);
 
   function update_figure(src,data)
       % マウスの位置から極を決定
@@ -25,10 +21,17 @@ set_figure_ax_resp(ax_resp)
       y = ImpulseResp_FirstOrder(t,s);
       
       % up_date
-      update_pole_location(ax_pole,Plot_pole_location_1,x_pole_location);
+      update_pole_location(Plot_pole_location,x_pole_location);
       update_response(Plot_response, y);
   end
 
+end
+
+function [ax_pole, Plot_pole_location, ax_resp, Plot_response] = MakeAxes(ax_pole, ax_resp, t, y)
+Plot_pole_location = plot(ax_pole,0,0,'*','MarkerSize',10);hold on;
+set_figure_ax_pole(ax_pole)
+Plot_response = plot(ax_resp,t,y,'LineWidth',1.1);hold on;
+set_figure_ax_resp(ax_resp)
 end
 
 function y = ImpulseResp_FirstOrder(t, s)
@@ -47,10 +50,9 @@ function update_response(Plot_response, y)
 Plot_response.YData = y;
 end
 
-function update_pole_location(ax_pole, Plot_pole_location_1,x_pole_location)
+function update_pole_location(Plot_pole_location_1,x_pole_location)
 Plot_pole_location_1.XData = x_pole_location;
 Plot_pole_location_1.YData = 0;
-hold(ax_pole,'on');
 end
 
 function set_figure_ax_pole(ax_pole)
