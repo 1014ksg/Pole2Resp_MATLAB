@@ -33,7 +33,7 @@ end
 
 function y = ImpulseResp_FirstOrder(t, s)
 arguments
-    t = 0:0.1:8;
+    % 1次遅れ系の系の時間応答
     s = 1
 end
 

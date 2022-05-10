@@ -3,7 +3,7 @@ fig = figure('WindowButtonMotionFcn',@my_callback);
 % Axes オブジェクトを作成。
 ax_pole = subplot(1,2,1);
 Plot_pole_location_1 = plot(ax_pole,0,0,'*');hold on;
-Plot_pole_location_2 = plot(ax_pole,1,-1,'*');hold on;
+%Plot_pole_location_2 = plot(ax_pole,1,-1,'*');hold on;
 ax_pole.XLim = [-4 1];
 ax_pole.YLim = [-8 8];
 ax_pole.XAxisLocation = 'origin';
@@ -32,20 +32,14 @@ grid on
       Plot_pole_location_1.XData = x_pole_location;
       Plot_pole_location_1.YData = 0;
       hold(ax_pole,'on');
-      
-      % リファクタ！（2次用）
-      Plot_pole_location_1.XData = x_pole_location;
-      Plot_pole_location_1.YData = y_pole_location;
-      Plot_pole_location_2.XData = x_pole_location;
-      Plot_pole_location_2.YData = -y_pole_location;
-      
+
       % 1次遅れ系のシステム、初期値を1にするため、K=Tとする。
       % 伝達関数
-      r = x_pole_location;
-      i = abs(y_pole_location)
-      y = exp(r*t)*sin(i*t);
+      s = x_pole_location;
+      T = -1/s;
+      K = T;
+      y = K/T * exp(-1/T*t);
       Plot_response.YData = y
-      
   end
 
 end
