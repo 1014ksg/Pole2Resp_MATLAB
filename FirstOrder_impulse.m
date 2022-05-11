@@ -28,9 +28,9 @@ ax_resp = subplot(1,2,2);
 end
 
 function [ax_pole, Plot_pole_location, ax_resp, Plot_response] = MakeAxes(ax_pole, ax_resp, t, y)
-Plot_pole_location = plot(ax_pole,0,0,'*','MarkerSize',10);hold on;
-set_figure_ax_pole(ax_pole)
-Plot_response = plot(ax_resp,t,y,'LineWidth',1.1);hold on;
+Plot_pole_location = plot(ax_pole,0,0,'*','MarkerSize',10);
+set_figure_ax_pole(ax_pole);
+Plot_response = plot(ax_resp,t,y,'LineWidth',1.1);
 set_figure_ax_resp(ax_resp)
 end
 
@@ -60,7 +60,7 @@ ax_pole.XLim = [-4 1];
 ax_pole.YLim = [-8 8];
 ax_pole.XAxisLocation = 'origin';
 ax_pole.YAxisLocation = 'origin';
-grid on
+grid(ax_pole, 'on')
 end
 
 function set_figure_ax_resp(ax_resp)
@@ -68,5 +68,5 @@ ax_resp.XAxis.Visible = 'off';
 yline(ax_resp,0.0);
 ax_resp.XLim = [0 5];
 ax_resp.YLim = [-0.1 1.1];
-grid on
+grid(ax_resp, 'on')
 end

@@ -1,0 +1,27 @@
+classdef FirstOrderModel
+   properties
+      name
+      t
+      y
+      T
+      K
+   end 
+    methods
+        function obj = FirstOrderModel()
+            obj.name = "FirstOrder"
+            obj.t = 0:0.05:8;
+            obj.y = zeros(size(obj.t));
+        end
+        function obj = impulse_response(obj,s)
+            arguments
+                s = 1
+            end
+            % 1次遅れ系のシステム、初期値を1にするため、K=Tとする。
+            obj.T = -1/s;
+            K = obj.T;
+            y = K/T * exp(-1/T*t);
+        end
+            
+        end
+    end
+end
