@@ -2,9 +2,9 @@ function Pole2ImpulseResp()
 % figure の作成
 fig = figure('WindowButtonMotionFcn',@update_figure);
 
-% 以下、Second ⇒ Second に変更すれば2次系に
-model = SecondOrderModel;
-Axes = MakeAxes4Resp_SecondOrder;
+% 以下、First ⇒ Second に変更すれば2次系に
+model = FirstOrderModel;
+Axes = MakeAxes4Resp_FirstOrder;
 [ax_pole, Plot_pole_location, ax_resp, Plot_response] =...
     Axes.MakeAxes(model.t, model.y);
 
