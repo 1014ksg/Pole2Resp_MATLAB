@@ -1,8 +1,8 @@
-classdef MakeAxes4Resp_first_order < MakeAxes4Resp 
+classdef MakeAxes4Resp_FirstOrder < MakeAxes4Resp 
     methods
         % 1次系
         function  [ax_pole, Plot_pole_location, ax_resp, Plot_response] =...
-                MakeAxes_first_order(obj, t, y)
+                MakeAxes(obj, t, y)
             Plot_pole_location = plot(obj.ax_pole,0,0,'*','MarkerSize',10);
             obj.tmp_set_figure_ax_pole(obj.ax_pole);
             
