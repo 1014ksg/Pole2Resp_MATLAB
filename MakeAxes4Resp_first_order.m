@@ -12,7 +12,7 @@ classdef MakeAxes4Resp_first_order < MakeAxes4Resp
             ax_pole = obj.ax_pole;
             ax_resp = obj.ax_resp;
         end
-        function update_pole_location_first_order(obj, Plot_pole_location,s)
+        function update_pole_location(obj, Plot_pole_location,s)
             Plot_pole_location.XData = s(1)
             Plot_pole_location.YData = 0;
         end

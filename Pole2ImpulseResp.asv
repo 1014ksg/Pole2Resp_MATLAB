@@ -1,16 +1,13 @@
 function Pole2ImpulseResp()
+% model と見たい応答の設定
+model = SecondOrderModel;
+
 % figure の作成
 fig = figure('WindowButtonMotionFcn',@update_figure);
-% model と見たい応答の設定
-model = FirstOrderModel;
-% model = SecondOrderModel;
-
-
 
 % Axes オブジェクトの作成
-Axes = MakeAxes4Resp;
-[ax_pole, Plot_pole_location, ax_resp, Plot_response] = Axes.MakeAxes_first_order(model.t, model.y);
-% [ax_pole, Plot_pole_location_1, Plot_pole_location_2, ax_resp, Plot_response] = Axes.MakeAxes_second_order(model.t, model.y)
+Axes = MakeAxes4Resp_second_order;
+[ax_pole, Plot_pole_location_1, Plot_pole_location_2, ax_resp, Plot_response] = Axes.MakeAxes_second_order(model.t, model.y)
 
   function update_figure(src,data)
       % マウスの位置から極を決定
