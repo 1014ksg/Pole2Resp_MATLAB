@@ -27,7 +27,6 @@ classdef SecondOrderModel
             obj.i = abs(s(2));
             obj.fai = atan(obj.i/obj.r);
             y = 1- exp(obj.r*obj.t).*sin(obj.i*obj.t+obj.fai);
-            
         end
     end
 end
