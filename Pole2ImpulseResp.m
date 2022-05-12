@@ -2,6 +2,7 @@ function Pole2ImpulseResp()
 % figure の作成
 fig = figure('WindowButtonMotionFcn',@update_figure);
 
+
 % 以下、First ⇒ Second に変更すれば2次系に
 model = FirstOrderModel;
 Axes = MakeAxes4Resp_FirstOrder;
