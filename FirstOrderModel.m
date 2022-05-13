@@ -18,5 +18,11 @@ classdef FirstOrderModel
             obj.K = obj.Tc;
             y = obj.K/obj.Tc * exp(-1/obj.Tc*obj.t);
         end
+        function y = step_response(obj,s)
+            % 初期値を1にするため、K=1とする。
+            obj.Tc = -1/s(1);
+            obj.K = 1;
+            y = obj.K * (1 - exp(-1/obj.Tc*obj.t));
+        end
     end
 end
