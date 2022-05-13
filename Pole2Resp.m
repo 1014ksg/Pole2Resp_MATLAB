@@ -3,8 +3,8 @@ function Pole2Resp()
 fig = figure('WindowButtonMotionFcn',@update_figure);
 
 % model の選択（FirstOrder or SecondOrder ?)
-model = SecondOrderModel;
-Axes = MakeAxes4Resp_SecondOrder;
+model = FirstOrderModel;
+Axes = MakeAxes4Resp_FirstOrder;
 [ax_pole, Plot_pole_location, ax_resp, Plot_response] =...
     Axes.MakeAxes(model.t, model.y);
 
