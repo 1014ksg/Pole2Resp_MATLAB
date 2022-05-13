@@ -7,6 +7,10 @@ classdef SecondOrderModel
       K
       r
       i
+      alpha
+      beta
+      omega
+      zeta
       fai
    end 
     methods
@@ -25,8 +29,13 @@ classdef SecondOrderModel
             % 2次遅れ系のシステム、初期値は1
             obj.r = s(1);
             obj.i = abs(s(2));
-            obj.fai = atan(obj.i/obj.r);
-            y = 1- exp(obj.r*obj.t).*sin(obj.i*obj.t+obj.fai);
+            obj.alpha = s(1)+1j*s(2);
+            obj.beta =  s(1)-1j*s(2);
+            obj.omega = (obj.i^2+1/4*(obj.alpha+obj.beta)^2)^(1/2);
+            obj.zeta = -1/(2*obj.omega)*(obj.alpha+obj.beta);
+            obj.fai = atan(((1-obj.zeta^2)^(1/2))/obj.zeta);
+            
+            y  = 1-1/((1-obj.zeta^2)^(1/2))*exp(obj.r*obj.t).*sin(obj.i*obj.t+obj.fai);
         end
     end
 end
