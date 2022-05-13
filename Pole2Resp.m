@@ -22,10 +22,4 @@ Axes = MakeAxes4Resp_SecondOrder;
       Axes.update_response(Plot_response, y);
   end
 
-
-
-
-
-
-
 end
