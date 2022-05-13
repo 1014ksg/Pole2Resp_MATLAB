@@ -18,8 +18,8 @@ Axes = MakeAxes4Resp_SecondOrder;
       %y = model.impulse_response(s);
       y = model.step_response(s);
       
-      Axes.update_pole_location(Plot_pole_location, s)
-      Axes.update_response(Plot_response, y)
+      Axes.update_pole_location(Plot_pole_location, s);
+      Axes.update_response(Plot_response, y);
   end
 
 end
