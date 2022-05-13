@@ -27,7 +27,7 @@ classdef MakeAxes4Resp
             ax_resp.XAxis.Visible = 'off';
             yline(ax_resp,0.0);
             ax_resp.XLim = [0 5];
-            ax_resp.YLim = [-1.1 1.1];
+            ax_resp.YLim = [-1.1 2.1];
             grid(ax_resp, 'on')
         end
     end
